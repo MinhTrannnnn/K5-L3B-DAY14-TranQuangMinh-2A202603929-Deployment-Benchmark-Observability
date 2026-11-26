@@ -1,0 +1,132 @@
+{
+  "python": "Python 3.12.14",
+  "date_local": "2026-11-26",
+  "note": "Production uses ENVIRONMENT=production and local placeholder keys; both apps use mock LLM, no external LLM API calls.",
+  "runs": [
+    {
+      "variant": "develop",
+      "port": 8000,
+      "checks": [
+        {
+          "method": "GET",
+          "path": "/",
+          "body": null,
+          "status": 200,
+          "response": {
+            "message": "Hello! Agent is running on my machine :)"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/ask",
+          "body": {
+            "question": "docker"
+          },
+          "status": 422,
+          "response": {
+            "detail": [
+              {
+                "type": "missing",
+                "loc": [
+                  "query",
+                  "question"
+                ],
+                "msg": "Field required",
+                "input": null
+              }
+            ]
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/ask?question=docker",
+          "body": null,
+          "status": 200,
+          "response": {
+            "answer": "Container là cách đóng gói app để chạy ở mọi nơi. Build once, run anywhere!"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/health",
+          "body": null,
+          "status": 404,
+          "response": {
+            "detail": "Not Found"
+          }
+        }
+      ],
+      "shutdown_exit_code": 0,
+      "shutdown_complete_logged": false
+    },
+    {
+      "variant": "production",
+      "port": 18001,
+      "checks": [
+        {
+          "method": "GET",
+          "path": "/",
+          "body": null,
+          "status": 200,
+          "response": {
+            "app": "AI Agent",
+            "version": "1.0.0",
+            "environment": "production",
+            "status": "running"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/ask",
+          "body": {
+            "question": "docker"
+          },
+          "status": 200,
+          "response": {
+            "question": "docker",
+            "answer": "Container là cách đóng gói app để chạy ở mọi nơi. Build once, run anywhere!",
+            "model": "gpt-4o-mini"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/ask",
+          "body": {},
+          "status": 422,
+          "response": {
+            "detail": "question field is required"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/health",
+          "body": null,
+          "status": 200,
+          "response": {
+            "status": "ok",
+            "uptime_seconds": 0.3,
+            "version": "1.0.0",
+            "environment": "production",
+            "timestamp": "2026-11-26T07:35:40.495338+00:00"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/ready",
+          "body": null,
+          "status": 200,
+          "response": {
+            "ready": true
+          }
+        }
+      ],
+      "shutdown_exit_code": 0,
+      "shutdown_complete_logged": true,
+      "app_log_lines": 8,
+      "invalid_json_log_lines": 3,
+      "invalid_json_example": [
+        "{\"time\":\"2026-11-26 14:35:40,177\",\"level\":\"INFO\",\"msg\":\"{\"event\": \"startup\", \"app\": \"AI Agent\", \"version\": \"1.0.0\", \"env\": \"production\", \"port\": 18001}\"}"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+minhtran@MacBook-Pro-cua-MinhTran Lab14 % curl -i -X POST http://localhost:8004/ask \
+  -H "Authorization: Bearer $TOKEN" \
+  -H 'Content-Type: application/json' \
+  -d '{"question":"What is Docker?"}'
+HTTP/1.1 200 OK
+date: Thu, 26 Nov 2026 10:41:35 GMT
+server: uvicorn
+content-length: 196
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"question":"What is Docker?","answer":"Container là cách đóng gói app để chạy ở mọi nơi. Build once, run anywhere!","usage":{"requests_remaining":9,"budget_remaining_usd":1.9e-05}}%                
+minhtran@MacBook-Pro-cua-MinhTran Lab14 % for i in {1..20}; do
+  printf '\n--- Request %s ---\n' "$i"
+  curl -sS -i -X POST http://localhost:8004/ask \
+    -H "Authorization: Bearer $TOKEN" \
+    -H 'Content-Type: application/json' \
+    -d '{"question":"What is Docker?"}'
+  printf '\n'
+done
+
+--- Request 1 ---
+HTTP/1.1 200 OK
+date: Thu, 26 Nov 2026 10:42:20 GMT
+server: uvicorn
+content-length: 196
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"question":"What is Docker?","answer":"Container là cách đóng gói app để chạy ở mọi nơi. Build once, run anywhere!","usage":{"requests_remaining":8,"budget_remaining_usd":3.8e-05}}
+
+--- Request 2 ---
+HTTP/1.1 200 OK
+date: Thu, 26 Nov 2026 10:42:20 GMT
+server: uvicorn
+content-length: 196
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"question":"What is Docker?","answer":"Container là cách đóng gói app để chạy ở mọi nơi. Build once, run anywhere!","usage":{"requests_remaining":7,"budget_remaining_usd":5.7e-05}}
+
+--- Request 3 ---
+HTTP/1.1 200 OK
+date: Thu, 26 Nov 2026 10:42:20 GMT
+server: uvicorn
+content-length: 196
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"question":"What is Docker?","answer":"Container là cách đóng gói app để chạy ở mọi nơi. Build once, run anywhere!","usage":{"requests_remaining":6,"budget_remaining_usd":7.6e-05}}
+
+--- Request 4 ---
+HTTP/1.1 200 OK
+date: Thu, 26 Nov 2026 10:42:21 GMT
+server: uvicorn
+content-length: 196
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"question":"What is Docker?","answer":"Container là cách đóng gói app để chạy ở mọi nơi. Build once, run anywhere!","usage":{"requests_remaining":5,"budget_remaining_usd":9.4e-05}}
+
+--- Request 5 ---
+HTTP/1.1 200 OK
+date: Thu, 26 Nov 2026 10:42:21 GMT
+server: uvicorn
+content-length: 197
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"question":"What is Docker?","answer":"Container là cách đóng gói app để chạy ở mọi nơi. Build once, run anywhere!","usage":{"requests_remaining":4,"budget_remaining_usd":0.000113}}
+
+--- Request 6 ---
+HTTP/1.1 200 OK
+date: Thu, 26 Nov 2026 10:42:21 GMT
+server: uvicorn
+content-length: 197
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"question":"What is Docker?","answer":"Container là cách đóng gói app để chạy ở mọi nơi. Build once, run anywhere!","usage":{"requests_remaining":3,"budget_remaining_usd":0.000132}}
+
+--- Request 7 ---
+HTTP/1.1 200 OK
+date: Thu, 26 Nov 2026 10:42:21 GMT
+server: uvicorn
+content-length: 197
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"question":"What is Docker?","answer":"Container là cách đóng gói app để chạy ở mọi nơi. Build once, run anywhere!","usage":{"requests_remaining":2,"budget_remaining_usd":0.000151}}
+
+--- Request 8 ---
+HTTP/1.1 200 OK
+date: Thu, 26 Nov 2026 10:42:21 GMT
+server: uvicorn
+content-length: 196
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"question":"What is Docker?","answer":"Container là cách đóng gói app để chạy ở mọi nơi. Build once, run anywhere!","usage":{"requests_remaining":1,"budget_remaining_usd":0.00017}}
+
+--- Request 9 ---
+HTTP/1.1 200 OK
+date: Thu, 26 Nov 2026 10:42:21 GMT
+server: uvicorn
+content-length: 197
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"question":"What is Docker?","answer":"Container là cách đóng gói app để chạy ở mọi nơi. Build once, run anywhere!","usage":{"requests_remaining":0,"budget_remaining_usd":0.000189}}
+
+--- Request 10 ---
+HTTP/1.1 429 Too Many Requests
+date: Thu, 26 Nov 2026 10:42:21 GMT
+server: uvicorn
+x-ratelimit-limit: 10
+x-ratelimit-remaining: 0
+x-ratelimit-reset: 1795689802
+retry-after: 14
+content-length: 98
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"detail":{"error":"Rate limit exceeded","limit":10,"window_seconds":60,"retry_after_seconds":14}}
+
+--- Request 11 ---
+HTTP/1.1 429 Too Many Requests
+date: Thu, 26 Nov 2026 10:42:21 GMT
+server: uvicorn
+x-ratelimit-limit: 10
+x-ratelimit-remaining: 0
+x-ratelimit-reset: 1795689802
+retry-after: 14
+content-length: 98
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"detail":{"error":"Rate limit exceeded","limit":10,"window_seconds":60,"retry_after_seconds":14}}
+
+--- Request 12 ---
+HTTP/1.1 429 Too Many Requests
+date: Thu, 26 Nov 2026 10:42:21 GMT
+server: uvicorn
+x-ratelimit-limit: 10
+x-ratelimit-remaining: 0
+x-ratelimit-reset: 1795689802
+retry-after: 14
+content-length: 98
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"detail":{"error":"Rate limit exceeded","limit":10,"window_seconds":60,"retry_after_seconds":14}}
+
+--- Request 13 ---
+HTTP/1.1 429 Too Many Requests
+date: Thu, 26 Nov 2026 10:42:21 GMT
+server: uvicorn
+x-ratelimit-limit: 10
+x-ratelimit-remaining: 0
+x-ratelimit-reset: 1795689802
+retry-after: 14
+content-length: 98
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"detail":{"error":"Rate limit exceeded","limit":10,"window_seconds":60,"retry_after_seconds":14}}
+
+--- Request 14 ---
+HTTP/1.1 429 Too Many Requests
+date: Thu, 26 Nov 2026 10:42:21 GMT
+server: uvicorn
+x-ratelimit-limit: 10
+x-ratelimit-remaining: 0
+x-ratelimit-reset: 1795689802
+retry-after: 14
+content-length: 98
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"detail":{"error":"Rate limit exceeded","limit":10,"window_seconds":60,"retry_after_seconds":14}}
+
+--- Request 15 ---
+HTTP/1.1 429 Too Many Requests
+date: Thu, 26 Nov 2026 10:42:21 GMT
+server: uvicorn
+x-ratelimit-limit: 10
+x-ratelimit-remaining: 0
+x-ratelimit-reset: 1795689802
+retry-after: 14
+content-length: 98
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"detail":{"error":"Rate limit exceeded","limit":10,"window_seconds":60,"retry_after_seconds":14}}
+
+--- Request 16 ---
+HTTP/1.1 429 Too Many Requests
+date: Thu, 26 Nov 2026 10:42:21 GMT
+server: uvicorn
+x-ratelimit-limit: 10
+x-ratelimit-remaining: 0
+x-ratelimit-reset: 1795689802
+retry-after: 14
+content-length: 98
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"detail":{"error":"Rate limit exceeded","limit":10,"window_seconds":60,"retry_after_seconds":14}}
+
+--- Request 17 ---
+HTTP/1.1 429 Too Many Requests
+date: Thu, 26 Nov 2026 10:42:21 GMT
+server: uvicorn
+x-ratelimit-limit: 10
+x-ratelimit-remaining: 0
+x-ratelimit-reset: 1795689802
+retry-after: 14
+content-length: 98
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"detail":{"error":"Rate limit exceeded","limit":10,"window_seconds":60,"retry_after_seconds":14}}
+
+--- Request 18 ---
+HTTP/1.1 429 Too Many Requests
+date: Thu, 26 Nov 2026 10:42:21 GMT
+server: uvicorn
+x-ratelimit-limit: 10
+x-ratelimit-remaining: 0
+x-ratelimit-reset: 1795689802
+retry-after: 14
+content-length: 98
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"detail":{"error":"Rate limit exceeded","limit":10,"window_seconds":60,"retry_after_seconds":14}}
+
+--- Request 19 ---
+HTTP/1.1 429 Too Many Requests
+date: Thu, 26 Nov 2026 10:42:21 GMT
+server: uvicorn
+x-ratelimit-limit: 10
+x-ratelimit-remaining: 0
+x-ratelimit-reset: 1795689802
+retry-after: 14
+content-length: 98
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"detail":{"error":"Rate limit exceeded","limit":10,"window_seconds":60,"retry_after_seconds":14}}
+
+--- Request 20 ---
+HTTP/1.1 429 Too Many Requests
+date: Thu, 26 Nov 2026 10:42:21 GMT
+server: uvicorn
+x-ratelimit-limit: 10
+x-ratelimit-remaining: 0
+x-ratelimit-reset: 1795689802
+retry-after: 14
+content-length: 98
+content-type: application/json
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+
+{"detail":{"error":"Rate limit exceeded","limit":10,"window_seconds":60,"retry_after_seconds":14}}
+minhtran@MacBook-Pro-cua-MinhTran Lab14 % 

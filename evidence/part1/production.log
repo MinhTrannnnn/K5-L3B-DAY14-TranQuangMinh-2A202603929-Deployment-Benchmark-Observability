@@ -1,0 +1,21 @@
+{"time":"2026-11-26 14:35:40,168","level":"INFO","msg":"Starting AI Agent on 0.0.0.0:18001"}
+INFO:     Started server process [41981]
+INFO:     Waiting for application startup.
+{"time":"2026-11-26 14:35:40,177","level":"INFO","msg":"{"event": "startup", "app": "AI Agent", "version": "1.0.0", "env": "production", "port": 18001}"}
+{"time":"2026-11-26 14:35:40,282","level":"INFO","msg":"Agent is ready to serve requests"}
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:18001 (Press CTRL+C to quit)
+INFO:     127.0.0.1:64186 - "GET / HTTP/1.1" 200 OK
+{"time":"2026-11-26 14:35:40,368","level":"INFO","msg":"{"event": "agent_request", "question_length": 6, "client_ip": "127.0.0.1"}"}
+{"time":"2026-11-26 14:35:40,490","level":"INFO","msg":"{"event": "agent_response", "response_length": 75}"}
+INFO:     127.0.0.1:64188 - "POST /ask HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64190 - "POST /ask HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:64192 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64194 - "GET /ready HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+{"time":"2026-11-26 14:35:40,693","level":"INFO","msg":"Agent shutting down gracefully — finishing in-flight requests..."}
+{"time":"2026-11-26 14:35:40,798","level":"INFO","msg":"Shutdown complete"}
+INFO:     Application shutdown complete.
+INFO:     Finished server process [41981]
+{"time":"2026-11-26 14:35:40,799","level":"INFO","msg":"Received SIGTERM — initiating graceful shutdown"}
