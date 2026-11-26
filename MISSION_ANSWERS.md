@@ -3,7 +3,7 @@
 - Học viên: Trần Quang Minh
 - MSSV: 2A202603929 — Lớp: K5-L3B
 - Ngày thực hiện Part 1: 26/11/2026
-- Tiến độ: hoàn thành Part 1, 2, 4, 5, 6 (Checkpoint 1–5); Part 3 (deploy public) và Part 7 chưa hoàn thành.
+- Tiến độ: hoàn thành Part 1–6, gồm ba ảnh minh chứng deploy; Part 7 chưa hoàn thành.
 
 ## Part 1: Localhost vs Production
 
@@ -292,6 +292,53 @@ docker compose -p k5-day14-docker -f 02-docker/production/docker-compose.yml exe
 - [x] Chạy Compose với 4 service; có sơ đồ và giải thích kết nối.
 - [x] `/health` và `/ask` qua Nginx đều trả 200.
 
+## Part 3: Cloud Deployment
+
+### Exercise 3.1 — Railway
+
+Đã deploy agent Part 6 và service Redis trên Railway; dùng repo fork của học viên, Root Directory `/06-lab-complete` và config `/06-lab-complete/railway.toml`.
+
+Public URL: https://k5-l3b-day14-tranquangminh-2a202603929-deploymen-production.up.railway.app
+
+| Kiểm tra | HTTP thực tế | Người thực hiện |
+|---|---:|---|
+| `/health` | 200 | Codex kiểm tra trực tiếp URL public. |
+| `/ready` | 200 | Codex kiểm tra trực tiếp URL public. |
+| `/ask` thiếu key | 401 | Codex kiểm tra trực tiếp URL public. |
+| `/ask` có key | 200 | Học viên cung cấp output curl ngày 26/11/2026, 13:04:23 UTC. |
+
+Response request có key:
+
+```json
+{"question":"What is Docker?","answer":"Container là cách đóng gói app để chạy ở mọi nơi. Build once, run anywhere!","usage":{"input_tokens":6,"output_tokens":30,"cost_usd":1.89e-05}}
+```
+
+Key đặt trên nền tảng, Redis URL tham chiếu service Redis cùng project; không ghi secret trong code. Chi tiết cấu hình và lệnh test: [DEPLOYMENT.md](DEPLOYMENT.md). Đã có đủ ảnh [dashboard](screenshots/dashboard.png), [running](screenshots/running.png), [test](screenshots/test.png).
+
+### Exercise 3.2 — So sánh Railway với Render
+
+Chọn Railway làm nền tảng chính; dùng phương án so sánh config cho nền tảng còn lại, không khẳng định đã deploy Render.
+
+| Nội dung | `06-lab-complete/railway.toml` | `06-lab-complete/render.yaml` |
+|---|---|---|
+| Cấu trúc | TOML, nhóm `[build]` và `[deploy]` cho service. | YAML Blueprint, danh sách `services`. |
+| Docker | `builder="DOCKERFILE"`, `dockerfilePath="Dockerfile"`. | `type: web`, `runtime: docker`, Dockerfile và context `.`. |
+| Health check | `healthcheckPath="/health"`, timeout 30 giây. | `healthCheckPath: /health`. |
+| Secrets | File không chứa key; cấu hình key và tham chiếu Redis trong Railway Variables. | `AGENT_API_KEY` dùng `generateValue: true`; `REDIS_URL` dùng `sync: false` để nhập ngoài source. |
+| Cấu hình khác | Restart `ON_FAILURE`, tối đa 3 lần. | Khai báo ENVIRONMENT, rate limit, daily budget, log level trong envVars. |
+
+Hai file phục vụ schema riêng của mỗi nền tảng nhưng cùng chạy một Docker image và cùng dùng healthcheck. Cần đặt đúng root/context khi deploy từ repo nhiều thư mục. Cả hai không chứa secret thật; Redis của Render cần được cung cấp riêng vì Blueprint hiện chỉ định nghĩa web service.
+
+### Exercise 3.3 — Đọc pipeline Cloud Run
+
+Đối chiếu `03-cloud-deployment/production-cloud-run/cloudbuild.yaml` và `service.yaml`:
+
+1. Bước test cài dependencies và pytest, gọi `pytest tests/`; build Docker được đặt chờ bước test.
+2. Docker image được gắn tag theo `$COMMIT_SHA` và `latest`, rồi push lên registry `gcr.io/$PROJECT_ID/ai-agent`.
+3. Sau push, `gcloud run deploy` triển khai image commit lên region `asia-southeast1`, cấu hình scale 1–10 instance, tài nguyên và secret từ Secret Manager.
+4. `service.yaml` là định nghĩa service thay thế: concurrency 80, timeout 60 giây, CPU/memory, env và secret, liveness `/health`, startup probe `/ready`; pipeline hiện không trực tiếp apply file này. Trigger push main được mô tả trong comment, cần cấu hình trigger bên ngoài file.
+5. Lưu ý khi dùng thực tế: script test hiện có `echo` sau `pytest` mà không bật `set -e`, nên cần sửa cách truyền exit code để test fail thực sự chặn build. Phần này chỉ đọc và phân tích; chưa triển khai GCP.
+
 ## Part 4: API Security
 
 ### Exercise 4.1 — API key authentication
@@ -556,7 +603,7 @@ Total messages: 10
 | Shutdown | Route nghiệp vụ sync để FastAPI chạy trong thread pool; Uvicorn quản lý SIGTERM, chờ request và cleanup Redis ở lifespan. |
 | Docker | 2 stage Python slim, dependencies trong venv, non-root user, healthcheck theo PORT, `exec uvicorn` nhận signal, 2 worker. |
 | Compose | Agent + Redis có healthcheck và volume AOF; host port mặc định 8006 tránh trùng bài trước; env file tùy chọn. |
-| Hosting config | Có `railway.toml` và `render.yaml`, healthcheck `/health`, secret không ghi trực tiếp. Chưa deploy lên nền tảng. |
+| Hosting config | Có `railway.toml` và `render.yaml`, healthcheck `/health`, secret không ghi trực tiếp. Đã deploy Railway; thông tin và kiểm tra URL tại Part 3 / DEPLOYMENT.md. |
 
 ### Kiểm chứng thực tế
 
@@ -603,7 +650,7 @@ Output đầy đủ: [evidence/part6/production-readiness.txt](evidence/part6/pr
 
 ### Giới hạn và bước còn lại
 
-- PASS local chưa có nghĩa đã có URL public: Part 3 vẫn cần deploy agent + Redis, đặt biến môi trường, kiểm tra URL và chụp ảnh.
+- Sau PASS local đã deploy Railway và kiểm tra đủ 4 trường hợp tại Part 3; đã lưu đủ ba ảnh minh chứng deploy trong `screenshots/`.
 - Cost guard hiện kiểm tra tổng tiền đã dùng trước request rồi ghi nhận sau khi hoàn thành. Chưa có cơ chế giữ trước ngân sách, nên request đang chạy đồng thời có thể làm vượt ngân sách trước khi các request kế tiếp bị chặn. Đây là giới hạn cần xử lý nếu áp dụng thành dịch vụ trả tiền thật.
 - Chỉ số 63 MB là kết quả script chấm; không trộn với cột DISK USAGE của Docker Desktop đã dùng ở Part 2.
 
@@ -623,3 +670,4 @@ Output đầy đủ: [evidence/part6/production-readiness.txt](evidence/part6/pr
 | Exercise 5.2 | Codex hướng dẫn thử SIGTERM trong lúc request đang chạy. | Học viên cung cấp HTTP 200 và log hoàn tất shutdown; ghi rõ giới hạn do mock chặn event loop. |
 | Exercise 5.3–5.5 | Codex hướng dẫn scale và phân tích stateless. | Học viên cung cấp trạng thái 3 agent healthy và output script: 5 request qua 3 instance, history đủ 10 messages. |
 | Part 6 | Codex hoàn thiện các TODO của agent, Docker/Compose và cấu hình hosting. | Chạy script chấm gốc đầy đủ với Docker: PASS 12/12, 43/43 checks; lưu output, chưa deploy public. |
+| Part 3 | Codex hướng dẫn Railway, kiểm tra endpoint public, soạn tài liệu deploy và so sánh config. | Codex xác nhận health/ready/thiếu key; học viên cung cấp HTTP 200 có key. Đã kiểm tra đủ ba file screenshot; chưa deploy Render/GCP. |
