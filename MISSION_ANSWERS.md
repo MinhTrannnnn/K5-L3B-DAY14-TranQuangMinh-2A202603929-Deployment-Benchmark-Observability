@@ -3,7 +3,7 @@
 - Học viên: Trần Quang Minh
 - MSSV: 2A202603929 — Lớp: K5-L3B
 - Ngày thực hiện Part 1: 26/11/2026
-- Tiến độ: hoàn thành Part 1–6, gồm ba ảnh minh chứng deploy; Part 7 chưa hoàn thành.
+- Tiến độ: hoàn thành Part 1–7; đủ báo cáo, JSON/CSV và 7 ảnh minh chứng. Bài đã sẵn sàng nộp bằng link repo fork trên LMS.
 
 ## Part 1: Localhost vs Production
 
@@ -588,7 +588,7 @@ Total messages: 10
 
 ## Part 6: Final Project — Production-ready agent
 
-Đã hoàn thiện code khung ngay trong `06-lab-complete/` và chạy script chấm đầy đủ có Docker ngày 26/11/2026. **PASS 12/12, 43/43 checks passed**, process kiểm tra thoát với code 0.
+Đã hoàn thiện code khung ngay trong `06-lab-complete/` và chạy script chấm đầy đủ có Docker ngày 26/11/2026. **PASS 12/12, 44/44 checks passed** ở lượt kiểm tra cuối có thêm URL public, process kiểm tra thoát với code 0. Lượt local ban đầu đạt 43/43.
 
 ### Nội dung hiện thực
 
@@ -624,7 +624,7 @@ Kết quả đáng chú ý:
 - SIGTERM khi đang có request: request vẫn 200, process exit code 0.
 - `docker stop`: exit code 0 trong **0.7 giây**.
 
-Phần Checklist Deliverable từ output thật:
+Phần Checklist Deliverable từ output kiểm tra cuối:
 
 ```text
 📋 Checklist Deliverable
@@ -641,18 +641,28 @@ Phần Checklist Deliverable từ output thật:
      ✅ Graceful shutdown
      ✅ Public URL ready (Railway / Render config)
 ----------------------------------------------------------------
-  Result: 12/12 tiêu chí đạt · 43/43 checks passed
+  Result: 12/12 tiêu chí đạt · 44/44 checks passed
   🎉 PASS 12/12 — PRODUCTION READY! Deploy nào!
 ================================================================
 ```
 
-Output đầy đủ: [evidence/part6/production-readiness.txt](evidence/part6/production-readiness.txt).
+Output đầy đủ: [production-readiness-final.txt](evidence/part6/production-readiness-final.txt). Lệnh kiểm tra cuối thêm `--public-url` với URL Railway trong DEPLOYMENT.md.
 
 ### Giới hạn và bước còn lại
 
 - Sau PASS local đã deploy Railway và kiểm tra đủ 4 trường hợp tại Part 3; đã lưu đủ ba ảnh minh chứng deploy trong `screenshots/`.
 - Cost guard hiện kiểm tra tổng tiền đã dùng trước request rồi ghi nhận sau khi hoàn thành. Chưa có cơ chế giữ trước ngân sách, nên request đang chạy đồng thời có thể làm vượt ngân sách trước khi các request kế tiếp bị chặn. Đây là giới hạn cần xử lý nếu áp dụng thành dịch vụ trả tiền thật.
 - Chỉ số 63 MB là kết quả script chấm; không trộn với cột DISK USAGE của Docker Desktop đã dùng ở Part 2.
+
+## Part 7: Benchmark & Observability
+
+Báo cáo đầy đủ: [BENCHMARK_REPORT.md](BENCHMARK_REPORT.md).
+
+- CP7: histogram độ dài câu hỏi; 4 mức concurrency và 3 slow rate có JSON; eval v1/v2/v2 fixed, bản cuối **23/23**, 0 regression.
+- CI: [.github/workflows/eval.yml](.github/workflows/eval.yml), chạy quality gate 85% và so baseline; đã kiểm chứng local tương đương CI thành công. Branch protection cần bật required check trên GitHub nếu muốn bắt buộc chặn merge.
+- CP8: Grafana có tải, trace chậm có span gây chậm và log khớp trace ID, trace lỗi có exception, ảnh hai alert firing và thời gian phát hiện; promtool unit test SUCCESS.
+- Benchmark scale được kiểm tra lại đúng 1/3 agent, có kiểm đếm container mỗi 10 giây; không dùng hai CSV cũ thực tế đều chạy 2 replica.
+- File nộp: 10 JSON trong `reports/`, CSV Locust trong `benchmark-results/`, đủ 7 ảnh trong `screenshots/`.
 
 ## AI log
 
@@ -669,5 +679,10 @@ Output đầy đủ: [evidence/part6/production-readiness.txt](evidence/part6/pr
 | Exercise 5.1 | Codex hướng dẫn chạy app và phân biệt health/readiness. | Học viên cung cấp hai HTTP 200 tại port 8005; đối chiếu middleware để giải thích bộ đếm request. |
 | Exercise 5.2 | Codex hướng dẫn thử SIGTERM trong lúc request đang chạy. | Học viên cung cấp HTTP 200 và log hoàn tất shutdown; ghi rõ giới hạn do mock chặn event loop. |
 | Exercise 5.3–5.5 | Codex hướng dẫn scale và phân tích stateless. | Học viên cung cấp trạng thái 3 agent healthy và output script: 5 request qua 3 instance, history đủ 10 messages. |
-| Part 6 | Codex hoàn thiện các TODO của agent, Docker/Compose và cấu hình hosting. | Chạy script chấm gốc đầy đủ với Docker: PASS 12/12, 43/43 checks; lưu output, chưa deploy public. |
+| Part 6 | Codex hoàn thiện các TODO của agent, Docker/Compose và cấu hình hosting. | Chạy script chấm gốc đầy đủ với Docker: PASS 12/12, 43/43 checks; lưu output; sau đó đã deploy public ở Part 3 và kiểm tra lại đạt 44/44 checks. |
 | Part 3 | Codex hướng dẫn Railway, kiểm tra endpoint public, soạn tài liệu deploy và so sánh config. | Codex xác nhận health/ready/thiếu key; học viên cung cấp HTTP 200 có key. Đã kiểm tra đủ ba file screenshot; chưa deploy Render/GCP. |
+| Exercise 7.1 | Codex thêm histogram độ dài câu hỏi và giải thích metric/cardinality. | Học viên gọi v2 và cung cấp metrics: count 1, sum 40, request 200; ghi vào BENCHMARK_REPORT.md. |
+| Exercise 7.2 | Codex hướng dẫn load test và phân tích SLO/tail latency. | Đọc 4 JSON concurrency và 3 JSON slow rate do học viên chạy; cập nhật bảng và copy bằng chứng vào reports/. |
+| Exercise 7.3 | Codex bổ sung tài liệu JWT/HPA trong KNOWLEDGE_BASE, phân tích eval và giải thích quality gate CI. | Học viên chạy eval cuối: 23/23, errors 0, regression 0. Đọc JSON và cập nhật báo cáo; không sửa golden dataset hoặc đáp án. |
+| CP8 — scaling và ảnh | Codex tổng hợp CSV 1/3 instance và tổ chức ảnh minh chứng. | Dùng CSV thực tế; xem nội dung và chuyển ảnh về screenshots/ trong repo. Đã bổ sung ảnh chi tiết slow trace chụp trực tiếp Jaeger; số instance benchmark được kiểm chứng lại bằng Docker. |
+| Hoàn thiện bài nộp | Codex bổ sung ảnh slow trace từ Jaeger, workflow CI, thí nghiệm error-only và audit dữ liệu. | Eval local đạt 23/23; Part 6 cuối PASS 12/12, 44/44 checks; chạy lại benchmark đúng 1/3 replica và lưu bằng chứng, giữ nguyên script chấm/dataset. |

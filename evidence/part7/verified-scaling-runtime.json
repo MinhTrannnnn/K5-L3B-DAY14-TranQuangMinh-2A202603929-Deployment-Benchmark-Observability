@@ -1,0 +1,692 @@
+[
+  {
+    "count": 1,
+    "command": "docker compose -p k5-day14-observability run --rm --no-deps locust -f /mnt/locust/locustfile.py --host http://nginx --headless -u 100 -r 10 -t 2m --csv /mnt/results/scale_1",
+    "before": {
+      "utc": "2026-11-26T16:33:35.008578+00:00",
+      "running_agents": 1,
+      "agents": [
+        {
+          "id": "47d4af5c300a",
+          "running": true,
+          "health": "healthy",
+          "env": [
+            "LLM_MODEL=mock-llm-small",
+            "MOCK_SLOW_RATE=0.03",
+            "MOCK_ERROR_RATE=0.01"
+          ]
+        }
+      ]
+    },
+    "samples": [
+      {
+        "utc": "2026-11-26T16:33:45.122906+00:00",
+        "running_agents": 1,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:33:55.228200+00:00",
+        "running_agents": 1,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:34:05.338883+00:00",
+        "running_agents": 1,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:34:15.582761+00:00",
+        "running_agents": 1,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:34:25.740435+00:00",
+        "running_agents": 1,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:34:35.855458+00:00",
+        "running_agents": 1,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:34:45.969902+00:00",
+        "running_agents": 1,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:34:56.071897+00:00",
+        "running_agents": 1,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:35:06.204145+00:00",
+        "running_agents": 1,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:35:16.319679+00:00",
+        "running_agents": 1,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:35:26.420081+00:00",
+        "running_agents": 1,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:35:36.525852+00:00",
+        "running_agents": 1,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      }
+    ],
+    "exit_code": 1
+  },
+  {
+    "count": 3,
+    "command": "docker compose -p k5-day14-observability run --rm --no-deps locust -f /mnt/locust/locustfile.py --host http://nginx --headless -u 100 -r 10 -t 2m --csv /mnt/results/scale_3",
+    "before": {
+      "utc": "2026-11-26T16:35:57.065772+00:00",
+      "running_agents": 3,
+      "agents": [
+        {
+          "id": "47d4af5c300a",
+          "running": true,
+          "health": "healthy",
+          "env": [
+            "LLM_MODEL=mock-llm-small",
+            "MOCK_SLOW_RATE=0.03",
+            "MOCK_ERROR_RATE=0.01"
+          ]
+        },
+        {
+          "id": "e51e93be3069",
+          "running": true,
+          "health": "healthy",
+          "env": [
+            "MOCK_ERROR_RATE=0.01",
+            "LLM_MODEL=mock-llm-small",
+            "MOCK_SLOW_RATE=0.03"
+          ]
+        },
+        {
+          "id": "f56af44d6631",
+          "running": true,
+          "health": "healthy",
+          "env": [
+            "LLM_MODEL=mock-llm-small",
+            "MOCK_SLOW_RATE=0.03",
+            "MOCK_ERROR_RATE=0.01"
+          ]
+        }
+      ]
+    },
+    "samples": [
+      {
+        "utc": "2026-11-26T16:36:07.160556+00:00",
+        "running_agents": 3,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          },
+          {
+            "id": "e51e93be3069",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "MOCK_ERROR_RATE=0.01",
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03"
+            ]
+          },
+          {
+            "id": "f56af44d6631",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:36:17.276523+00:00",
+        "running_agents": 3,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          },
+          {
+            "id": "e51e93be3069",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "MOCK_ERROR_RATE=0.01",
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03"
+            ]
+          },
+          {
+            "id": "f56af44d6631",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:36:27.398574+00:00",
+        "running_agents": 3,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          },
+          {
+            "id": "e51e93be3069",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "MOCK_ERROR_RATE=0.01",
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03"
+            ]
+          },
+          {
+            "id": "f56af44d6631",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:36:37.497441+00:00",
+        "running_agents": 3,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          },
+          {
+            "id": "e51e93be3069",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "MOCK_ERROR_RATE=0.01",
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03"
+            ]
+          },
+          {
+            "id": "f56af44d6631",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:36:47.624450+00:00",
+        "running_agents": 3,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          },
+          {
+            "id": "e51e93be3069",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "MOCK_ERROR_RATE=0.01",
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03"
+            ]
+          },
+          {
+            "id": "f56af44d6631",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:36:57.732877+00:00",
+        "running_agents": 3,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          },
+          {
+            "id": "e51e93be3069",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "MOCK_ERROR_RATE=0.01",
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03"
+            ]
+          },
+          {
+            "id": "f56af44d6631",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:37:07.847046+00:00",
+        "running_agents": 3,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          },
+          {
+            "id": "e51e93be3069",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "MOCK_ERROR_RATE=0.01",
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03"
+            ]
+          },
+          {
+            "id": "f56af44d6631",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:37:17.985514+00:00",
+        "running_agents": 3,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          },
+          {
+            "id": "e51e93be3069",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "MOCK_ERROR_RATE=0.01",
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03"
+            ]
+          },
+          {
+            "id": "f56af44d6631",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:37:28.114200+00:00",
+        "running_agents": 3,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          },
+          {
+            "id": "e51e93be3069",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "MOCK_ERROR_RATE=0.01",
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03"
+            ]
+          },
+          {
+            "id": "f56af44d6631",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:37:38.234883+00:00",
+        "running_agents": 3,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          },
+          {
+            "id": "e51e93be3069",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "MOCK_ERROR_RATE=0.01",
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03"
+            ]
+          },
+          {
+            "id": "f56af44d6631",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:37:48.351829+00:00",
+        "running_agents": 3,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          },
+          {
+            "id": "e51e93be3069",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "MOCK_ERROR_RATE=0.01",
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03"
+            ]
+          },
+          {
+            "id": "f56af44d6631",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      },
+      {
+        "utc": "2026-11-26T16:37:58.446599+00:00",
+        "running_agents": 3,
+        "agents": [
+          {
+            "id": "47d4af5c300a",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          },
+          {
+            "id": "e51e93be3069",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "MOCK_ERROR_RATE=0.01",
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03"
+            ]
+          },
+          {
+            "id": "f56af44d6631",
+            "running": true,
+            "health": "healthy",
+            "env": [
+              "LLM_MODEL=mock-llm-small",
+              "MOCK_SLOW_RATE=0.03",
+              "MOCK_ERROR_RATE=0.01"
+            ]
+          }
+        ]
+      }
+    ],
+    "exit_code": 1
+  }
+]

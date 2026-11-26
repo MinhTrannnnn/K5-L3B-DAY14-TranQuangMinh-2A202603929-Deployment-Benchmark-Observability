@@ -1,0 +1,111 @@
+{
+  "time": 1795711044.437993,
+  "queries": {
+    "per_instance_rps": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "instance": "172.22.0.4:8000"
+            },
+            "value": [
+              1795711044.453,
+              "20.5450809985273"
+            ]
+          },
+          {
+            "metric": {
+              "instance": "172.22.0.8:8000"
+            },
+            "value": [
+              1795711044.453,
+              "20.563636363636363"
+            ]
+          },
+          {
+            "metric": {
+              "instance": "172.22.0.9:8000"
+            },
+            "value": [
+              1795711044.453,
+              "20.70909090909091"
+            ]
+          }
+        ]
+      }
+    },
+    "input_tokens_per_second": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795711044.456,
+              "4570.208565794672"
+            ]
+          }
+        ]
+      }
+    },
+    "output_tokens_per_second": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795711044.458,
+              "2429.1124703517785"
+            ]
+          }
+        ]
+      }
+    },
+    "up_instances": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "172.22.0.4:8000",
+              "job": "agent"
+            },
+            "value": [
+              1795711044.46,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "172.22.0.8:8000",
+              "job": "agent"
+            },
+            "value": [
+              1795711044.46,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "172.22.0.9:8000",
+              "job": "agent"
+            },
+            "value": [
+              1795711044.46,
+              "1"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

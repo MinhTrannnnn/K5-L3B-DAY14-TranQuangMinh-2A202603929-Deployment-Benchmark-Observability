@@ -1,0 +1,14 @@
+{
+  "required_files_present": true,
+  "missing_files": [],
+  "root_json_matches_original": true,
+  "root_csv_matches_original": true,
+  "eval_fixed_pass": true,
+  "ci_local_eval_pass": true,
+  "production_readiness_pass": true,
+  "protected_files_unchanged": true,
+  "scaling_counts_verified": true,
+  "error_only_completed": true,
+  "origin_is_user_fork": true,
+  "git_branch": "main"
+}

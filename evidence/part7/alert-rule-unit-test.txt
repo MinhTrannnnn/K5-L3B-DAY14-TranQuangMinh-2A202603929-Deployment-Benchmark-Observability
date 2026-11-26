@@ -1,0 +1,8 @@
+Command (production directory):
+docker run --rm -v "$PWD/prometheus:/p:ro" --entrypoint promtool prom/prometheus:v3.16.0 test rules /p/alert_rules_test.yml
+
+Captured result:
+Processing test file: /p/alert_rules_test.yml
+  SUCCESS
+
+Exit code: 0

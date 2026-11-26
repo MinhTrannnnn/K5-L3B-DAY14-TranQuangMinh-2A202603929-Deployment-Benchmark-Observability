@@ -1,0 +1,8 @@
+{
+  "started_at": "2026-11-26T16:03:25.948999801Z",
+  "created": "2026-11-26T16:03:23.777011133Z",
+  "fault_environment": [
+    "MOCK_ERROR_RATE=0.2",
+    "MOCK_SLOW_RATE=0.3"
+  ]
+}

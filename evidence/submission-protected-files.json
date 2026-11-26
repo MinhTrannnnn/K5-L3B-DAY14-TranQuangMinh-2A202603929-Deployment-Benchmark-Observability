@@ -1,0 +1,12 @@
+{
+  "06-lab-complete/check_production_ready.py": {
+    "unchanged_from_HEAD": true,
+    "sha256": "88e975e418e5fac30741e1f0657950f38c919dd990a6a58ae0b8e23a7c58130d"
+  },
+  "06-lab-complete/benchmark-observability/develop/eval/golden_dataset.jsonl": {
+    "unchanged_from_HEAD": true,
+    "sha256": "e13c07f6856b2dbec090bcb8ce0a7480e0442292d29921e8663998676bc19d56"
+  },
+  "tracked_secret_env_files": [],
+  "env_files_in_history": []
+}
